@@ -183,7 +183,7 @@ static void work_cpu(void)
 	c = 0;
 		
 	/* Perform some computation. */
-	for (int i = 0; i < 4096; i++)
+	for (int i = 0; i < 8192; i++)
 	{
 		int a = 1 + i;
 		for (int b = 2; b < i; b++)
@@ -295,9 +295,9 @@ static int sched_test1(void)
  */
 static int sched_test2(void)
 {
-	pid_t pid[4];
+	pid_t pid[400];
 	
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < 400; i++)
 	{
 		pid[i] = fork();
 	
@@ -324,7 +324,7 @@ static int sched_test2(void)
 		}
 	}
 	
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < 400; i++)
 	{
 		if (i & 1)
 			wait(NULL);
