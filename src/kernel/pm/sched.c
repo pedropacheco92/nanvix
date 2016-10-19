@@ -98,7 +98,8 @@ PUBLIC void yield(void)
 		 * Process with higher
 		 * waiting time found.
 		 */
-		if (p->counter > next->counter)
+		if ((p->counter + p->priority - p->nice) >
+			(next->counter + next->priority - next->nice))
 		{
 			next->counter++;
 			next = p;
