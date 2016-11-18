@@ -313,8 +313,18 @@ PRIVATE int allocf(void)
 				continue;
 			
 			/* Oldest page found. */
-			if ((oldest < 0) || (OLDEST(i, oldest)))
-				oldest = i;
+			if ((oldest < 0) || OLDEST(i, oldest))
+			{
+				/* Oldest page has been used recently */
+				if(frames[i].count > 0)
+				{
+					frames[i].count = 0;
+				}
+				else
+				{
+					oldest = i;	
+				}				
+			}				
 		}
 	}
 	
