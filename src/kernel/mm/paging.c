@@ -308,9 +308,9 @@ PRIVATE int allocf(void)
 		/* Local page replacement policy. */
 		if (frames[i].owner == curr_proc->pid)
 		{
-			/* Skip shared pages. */
+			/* Skip shared pages. 
 			if (frames[i].count > 1)
-				continue;
+				continue; */
 			
 			/* Oldest page found. */
 			if ((oldest < 0) || OLDEST(i, oldest))
